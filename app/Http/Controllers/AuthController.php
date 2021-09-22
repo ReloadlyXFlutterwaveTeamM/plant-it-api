@@ -24,8 +24,9 @@ class AuthController extends Controller
          if (!$validator->fails()){
 
             $data=$request->all();
-
+            $id = User::count();
             $user = User::create([
+                'id' => $id++,
                 'name' => $data['name'],
                 'phone' => $data['phone'],
                 'email' => $data['email'],
