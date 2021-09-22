@@ -44,7 +44,7 @@ class AuthController extends Controller
 
             ];
 
-            return response($id, 201);
+            return response($response, 201);
         
         }else{
 
