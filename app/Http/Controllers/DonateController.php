@@ -34,7 +34,9 @@ class DonateController extends Controller
                 'status' => $data['status']
             ]);
 
-            return "Donation Successful";
+            $response = "Donation Successful";
+
+            return response($response, "201");
         
         }else{
 
