@@ -24,6 +24,7 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
     //All secure URL's
     Route::get("logout", [AuthController::class,'logout']);
     Route::get("test", [DonateController::class,'test'], ['name' => 'test']);
+    Route::post("donation", [DonateController::class,'donations']);
 });
 
 
