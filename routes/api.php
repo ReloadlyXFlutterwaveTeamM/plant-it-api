@@ -24,7 +24,7 @@ use App\Http\Controllers\ReloadlyAPI;
 Route::group(['middleware' => 'auth:sanctum'], function(){
     //All secure URL's
     Route::get("logout", [AuthController::class,'logout']);
-    Route::get("test", [DonateController::class,'test'], ['name' => 'test']);
+    //Route::get("test", [DonateController::class,'test'], ['name' => 'test']);
     Route::post("donation", [DonateController::class,'donations']);
     Route::get("reloadly_airtime_access_token", [ReloadlyAPI::class,'airtime_access_token']);
     Route::get("reloadly_giftcard_access_token", [ReloadlyAPI::class,'giftcard_access_token']);
