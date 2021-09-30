@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Donation;
+use App\Models\Transanction;
 use Validator;
 use Auth;
 
@@ -16,7 +17,9 @@ class DonateController extends Controller
             'type' => 'required|string',
             'amount' => 'required|numeric',
             'points_earned' => 'required|numeric',
-            'status' => 'required'
+            'status' => 'required',
+            'ref_id' =>'required',
+            'tran_id' =>'required'
         ]);
 
         if (!$validator->fails()){
@@ -32,6 +35,12 @@ class DonateController extends Controller
                 'amount' => $data['amount'],
                 'points_earned' => $data['points_earned'],
                 'status' => $data['status']
+            ]);
+
+            $transanction = Transanction::create([
+                'user_id' => $user_id,
+                'tran_id' => $data['tran_id'],
+                'ref_id' => $data['ref_id']
             ]);
 
             $response = "Donation Successful";
