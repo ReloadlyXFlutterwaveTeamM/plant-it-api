@@ -5,19 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Transanction extends Model
+class Point extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'user_id',
-        'amount',
-        'currency',
-        'flw_ref',
-        'status',
-        'tx_ref',
-        'transanction_id'
+        'earned',
+        'redeemed',
+        'donation_id'
     ];
-
-
 }
