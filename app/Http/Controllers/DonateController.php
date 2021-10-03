@@ -14,7 +14,7 @@ class DonateController extends Controller
 {
     public function donations(Request $request){
         $validator = Validator::make($request->all(), [
-            'number_of_tree' => 'required|numeric',
+            'number_of_trees' => 'required|numeric',
             'tree_type' => 'required|string',
             'date_actualized' => 'nullable',
             'date_of_donation' => 'required',
@@ -41,7 +41,7 @@ class DonateController extends Controller
 
             $donation = Donation::create([
                 'user_id' => $user_id,
-                'number_tree' => $data['number_of_tree'],
+                'number_tree' => $data['number_of_trees'],
                 'tree_type' => $data['tree_type'],
                 'amount' => $data['amount'],
                 'date_actualized' => $data['date_actualized'],
