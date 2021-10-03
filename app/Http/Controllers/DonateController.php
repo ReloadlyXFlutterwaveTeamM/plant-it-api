@@ -14,10 +14,10 @@ class DonateController extends Controller
 {
     public function donations(Request $request){
         $validator = Validator::make($request->all(), [
-            'number_tree' => 'required|numeric',
+            'number_of_tree' => 'required|numeric',
             'tree_type' => 'required|string',
             'date_actualized' => 'nullable',
-            'date_donation' => 'required',
+            'date_of_donation' => 'required',
             'planting_area.coordinates' => 'required',
             'planting_area.name' => 'required',
             'planting_area.value' => 'required',
@@ -28,7 +28,7 @@ class DonateController extends Controller
             'points.redeemed' => 'required',
             'tx_ref' =>'required',
             'flw_ref' =>'required',
-            'transanction_id' =>'required',
+            'transaction_id' =>'required',
             'donation_id' =>'required'
         ]);
 
@@ -41,13 +41,13 @@ class DonateController extends Controller
 
             $donation = Donation::create([
                 'user_id' => $user_id,
-                'number_tree' => $data['number_tree'],
+                'number_tree' => $data['number_of_tree'],
                 'tree_type' => $data['tree_type'],
                 'amount' => $data['amount'],
                 'date_actualized' => $data['date_actualized'],
-                'date_donation' => $data['date_donation'],
+                'date_donation' => $data['date_of_donation'],
                 'donation_id' => $data['donation_id'],
-                'transaction_id' => $data['transanction_id']
+                'transaction_id' => $data['transaction_id']
             ]);
 
             $points = Point::create([
@@ -72,7 +72,7 @@ class DonateController extends Controller
                 'flw_ref' => $data['flw_ref'],
                 'status' => $data['status'],
                 'tx_ref' => $data['tx_ref'],
-                'transanction_id' => $data['transanction_id']
+                'transanction_id' => $data['transaction_id']
             ]);
 
            
