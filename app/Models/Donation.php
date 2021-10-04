@@ -11,11 +11,11 @@ class Donation extends Model
 
     protected $fillable = [
         'user_id',
-        'number_tree',
+        'number_of_trees',
         'tree_type',
         'amount',
         'date_actualized',
-        'date_donation',
+        'date_of_donation',
         'donation_id',
         'transaction_id'
 

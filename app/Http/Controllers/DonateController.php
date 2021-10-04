@@ -41,11 +41,11 @@ class DonateController extends Controller
 
             $donation = Donation::create([
                 'user_id' => $user_id,
-                'number_tree' => $data['number_of_trees'],
+                'number_of_trees' => $data['number_of_trees'],
                 'tree_type' => $data['tree_type'],
                 'amount' => $data['amount'],
                 'date_actualized' => $data['date_actualized'],
-                'date_donation' => $data['date_of_donation'],
+                'date_of_donation' => $data['date_of_donation'],
                 'donation_id' => $data['donation_id'],
                 'transaction_id' => $data['transaction_id']
             ]);
@@ -72,7 +72,7 @@ class DonateController extends Controller
                 'flw_ref' => $data['flw_ref'],
                 'status' => $data['status'],
                 'tx_ref' => $data['tx_ref'],
-                'transanction_id' => $data['transaction_id']
+                'transaction_id' => $data['transaction_id']
             ]);
 
            
@@ -91,7 +91,7 @@ class DonateController extends Controller
     }
 
     public function listDonations($user_id){
-        $donations = Donation::select('user_id', 'date_actualized', 'date_donation', 'donation_id', 'number_tree', 'transaction_id', 'tree_type')->where('user_id', $user_id)->get();
+        $donations = Donation::select('user_id', 'date_actualized', 'date_of_donation', 'donation_id', 'number_of_trees', 'transaction_id', 'tree_type')->where('user_id', $user_id)->get();
 
         for($i = 0; $i < count($donations); $i++) {
             $points = Point::select('earned', 'redeemed')->where('donation_id', $donations[$i]['donation_id'])->get();

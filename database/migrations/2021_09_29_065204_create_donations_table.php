@@ -16,11 +16,11 @@ class CreateDonationsTable extends Migration
         Schema::create('donations', function (Blueprint $table) {
             $table->id();
             $table->string('user_id');
-            $table->string('number_tree');
+            $table->string('number_of_trees');
             $table->string('tree_type');
             $table->string('amount');
             $table->string('date_actualized');
-            $table->string('date_donation');
+            $table->string('date_of_donation');
             $table->string('donation_id');
             $table->string('transaction_id');
             $table->timestamps();

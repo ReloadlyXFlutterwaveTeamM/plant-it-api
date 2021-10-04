@@ -16,7 +16,7 @@ class Transanction extends Model
         'flw_ref',
         'status',
         'tx_ref',
-        'transanction_id'
+        'transaction_id'
     ];
 
 

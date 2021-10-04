@@ -21,7 +21,7 @@ class CreateTransanctionsTable extends Migration
             $table->string('flw_ref');
             $table->string('status');
             $table->string('tx_ref');
-            $table->string('transanction_id');
+            $table->string('transaction_id');
             $table->timestamps();
         });
     }
