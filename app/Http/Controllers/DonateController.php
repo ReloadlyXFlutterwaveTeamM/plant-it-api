@@ -103,7 +103,10 @@ class DonateController extends Controller
             
             //dd($planting_area[$i]['coordinates']);
 
-            $donations[$i]["planting_area"] = $planting_area;
+            
+            
+
+            $donations[$i]["planting_area"] = $planting_area[0];
             
         }
 
