@@ -89,4 +89,17 @@ class DonateController extends Controller
 
 
     }
+
+    public function listDonations($user_id){
+        $donations = Donation::select('user_id', 'date_actualized', 'date_donation', 'donation_id', 'number_tree', 'transaction_id', 'tree_type')->where('user_id', $user_id)->get();
+
+        for($i = 0; $i < count($donations); $i++) {
+            $points = Point::select('earned', 'redeemed')->where('donation_id', $donations[$i]['donation_id'])->get();
+            $donations[$i]["points"] = $points[0];
+            $planting_area = TreePlanted::select('coordinates', 'name', 'value')->where('donation_id', $donations[$i]['donation_id'])->get();
+            $donations[$i]["planting_area"] = $planting_area[0];
+        }
+
+        return $donations;
+    }
 }
