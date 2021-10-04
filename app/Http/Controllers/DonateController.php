@@ -100,16 +100,10 @@ class DonateController extends Controller
 
             $planting_area = TreePlanted::select('coordinates', 'name', 'value')->where('donation_id', $donations[$i]['donation_id'])->get();
             
-            $coordinates = json_decode($planting_area[$i]['coordinates']);
-
-            $plant_area = [
-                'coordinates' => $coordinates,
-                'name' => $planting_area[$i]['name'], 
-                'value' => $planting_area[$i]['value']
-            ];
             
+            //dd($planting_area[$i]['coordinates']);
 
-            $donations[$i]["planting_area"] = $plant_area;
+            $donations[$i]["planting_area"] = $planting_area;
             
         }
 
