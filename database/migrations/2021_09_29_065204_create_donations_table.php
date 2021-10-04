@@ -16,7 +16,7 @@ class CreateDonationsTable extends Migration
         Schema::create('donations', function (Blueprint $table) {
             $table->id();
             $table->string('user_id');
-            $table->string('number_of_trees');
+            $table->integer('number_of_trees');
             $table->string('tree_type');
             $table->string('amount');
             $table->string('date_actualized');
