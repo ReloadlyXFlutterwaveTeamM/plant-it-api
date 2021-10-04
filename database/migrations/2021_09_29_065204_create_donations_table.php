@@ -19,7 +19,7 @@ class CreateDonationsTable extends Migration
             $table->integer('number_of_trees');
             $table->string('tree_type');
             $table->string('amount');
-            $table->string('date_actualized');
+            $table->string('date_actualized')->nullable();
             $table->string('date_of_donation');
             $table->string('donation_id');
             $table->string('transaction_id');

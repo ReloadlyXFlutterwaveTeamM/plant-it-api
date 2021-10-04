@@ -94,10 +94,25 @@ class DonateController extends Controller
         $donations = Donation::select('user_id', 'date_actualized', 'date_of_donation', 'donation_id', 'number_of_trees', 'transaction_id', 'tree_type')->where('user_id', $user_id)->get();
 
         for($i = 0; $i < count($donations); $i++) {
+
             $points = Point::select('earned', 'redeemed')->where('donation_id', $donations[$i]['donation_id'])->get();
             $donations[$i]["points"] = $points[0];
+
             $planting_area = TreePlanted::select('coordinates', 'name', 'value')->where('donation_id', $donations[$i]['donation_id'])->get();
-            $donations[$i]["planting_area"] = $planting_area[0];
+            $coordinates = json_decode($planting_area[$i]['coordinates']);
+
+            $arr_cordinates = [
+                floatval($coordinates[0]),
+                floatval($coordinates[1])
+            ];
+
+            $plant_area = [
+                'coordinates' => $arr_cordinates,
+                'name' => $planting_area[$i]['name'], 
+                'value' => $planting_area[$i]['value']
+            ];
+
+            $donations[$i]["planting_area"] = $plant_area;
         }
 
         return $donations;
